@@ -3,7 +3,7 @@
   padding: 0;
 }
  body {
-    background-color: aliceblue;
+    background-color: #eee;
  }
 
 .container {
@@ -12,17 +12,28 @@
   margin: 20px auto;*/
 }
 
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+}
+
 /***************************************
       signup/login page styling
 ***************************************/
 
 header {
-  background-image: linear-gradient(to right, #39D79F 40%, aliceblue);
+  background-image: linear-gradient(to right, #00695c 40%, black);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-  padding-bottom: 10px;
+  color: #fff;
+  padding: 10px 0px;
   position: fixed;
   text-align: center;
   width: 100%;
+}
+
+header h1 {
+  letter-spacing: 0.4em;
 }
 
 .signup_container {
@@ -34,10 +45,13 @@ header {
 }
 
 .signup_container input {
+  background-color: #fff;
   border: none;
-  border-bottom: 3px solid #39D79F;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
+  /*border-bottom: 3px solid #439889;*/
+  /*border-top-right-radius: 5px;
+  border-top-left-radius: 5px;*/
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
   font-size: 24px;
   height: 20px;
   margin: 10px 0px;
@@ -50,7 +64,7 @@ header {
 
 .signup_container button {
   align-self: center;
-  background-color: #16262B;
+  background-color: #439889;
   border: none;
   border-radius: 5px;
   color: white;

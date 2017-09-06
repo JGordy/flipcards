@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt");
 const passport = require('passport');
 
 const isAuthenticated = function (req, res, next) {
+  console.log(req.isAuthenticated());
     if (req.isAuthenticated()) {
       return next()
     }
@@ -21,7 +22,7 @@ router.get("/", function(req, res) {
 });
 
 router.post('/', passport.authenticate('local', {
-    successRedirect: '/feed',
+    successRedirect: '/decks',
     failureRedirect: '/',
     failureFlash: true
 }));
@@ -67,6 +68,29 @@ router.post("/signup", function(req, res) {
     req.flash("error", "Password does not match")
     res.redirect("/signup")
   }
+});
+
+
+router.get("/decks", isAuthenticated, function(req, res) {
+  console.log("I'm here!!");
+  models.Deck.findAll({
+    include: [
+      {model: models.Card, as: 'Cards'}
+    ]
+})
+    .then(function(data) {
+      if (data) {
+        console.log("yep data: ",data);
+        res.render("decks", {decks: data, currentUser: req.user.username})
+      } else {
+        console.log("nope data");
+        res.render("decks");
+      }
+    })
+    .catch(function(err) {
+      console.log(err);
+      next(err);
+    });
 });
 
 module.exports = router;
