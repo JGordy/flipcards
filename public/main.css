@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ body {
+    background-color: aliceblue;
+ }
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 20px auto;
+}
