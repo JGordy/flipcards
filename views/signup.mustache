@@ -1,0 +1,20 @@
+<header>
+  <h1>Flipcards</h1>
+</header>
+<div class="signup_container">
+  <form class="login" action="/" method="post">
+    <input type="text" name="username" placeholder="Username" autofocus>
+    <input type="password" name="password" placeholder="Password">
+    <button type="submit" name="submit">Log In</button>
+  </form>
+  {{#message}}
+  {{.}}
+  {{/message}}
+  <form class="signup" action="/signup" method="post">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="text" name="username" placeholder="Create a Username" required>
+    <input type="password" name="password" placeholder="Create a password" required>
+    <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+    <button type="submit" name="submit">Sign Up</button>
+  </form>
+</div>
