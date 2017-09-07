@@ -1,0 +1,21 @@
+<header>
+  <h1>Flipcards</h1>
+</header>
+<div class="main_container">
+  <form class="header_card" action="/new_card/{{#cards}}{{Decks.id}}{{/cards}}" method="post">
+    <h3>{{currentUser}}</h3>
+    <input type="text" name="front" placeholder="Front of Card">
+    <input type="text" name="back" placeholder="Back of Card">
+    <div class="textarea_button">
+      <button type="submit" name="submit">Create flipcard</button>
+    </div>
+  </form>
+  <div class="card_collection">
+    {{#cards}}
+    <div class="single_card">
+        <h4>{{front}}</h4>
+        <h5>{{back}}</h5>
+    </div>
+    {{/cards}}
+  </div>
+</div>

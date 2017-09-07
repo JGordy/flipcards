@@ -23,15 +23,15 @@ textarea:focus {
   padding-top: 57px;
 }
 
-.create_deck {
+.create_deck, .header_card {
   align-items: center;
   background-color: #439889;
   display: flex;
   font-family: sans-serif;
   justify-content: space-between;
   padding: 10px 0px;
-  position: sticky;
   position: -webkit-sticky;
+  position: sticky;
   top: 0px;
   width: 100%;
 }
@@ -71,13 +71,13 @@ textarea:focus {
   margin-right: 10px;
 }
 
-.deck_collection {
+.deck_collection, .card_collection {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
 }
 
-.single_deck {
+.single_deck, .single_card {
   border: 1px solid black;
   display: flex;
   flex-basis: 30%;

@@ -110,10 +110,9 @@ router.post("/new_deck", isAuthenticated, function(req, res) {
   })
 });
 
-
 // create a new card in a deck
 router.post("/new_card/:id", isAuthenticated, function(req, res) {
-  console.log(req.body);
+
   models.Card.create({
     deckId: req.params.id,
     front: req.body.front,
@@ -123,10 +122,45 @@ router.post("/new_card/:id", isAuthenticated, function(req, res) {
     res.redirect("/decks");
   })
   .catch(function(err) {
-
+    res.redirect("/decks")
   });
 
 });
+
+router.post("/new_card_header/:id", isAuthenticated, function(req, res) {
+
+  models.Card.create({
+    deckId: req.params.id,
+    front: req.body.front,
+    back: req.body.back,
+  })
+  .then(function(data) {
+    res.redirect("/cards/:id");
+  })
+  .catch(function(err) {
+    res.redirect("/cards/:id")
+  });
+
+});
+
+// route to the card list page
+router.get("/cards/:id", isAuthenticated, function(req, res) {
+
+  models.Card.findAll({
+    where: {deckId: req.params.id},
+    include: [
+      {model: models.Deck, as: 'Decks'}
+    ]
+  })
+  .then(function(data) {
+    console.log("DAAATTAA: ", data[0].Decks.id);
+    res.render("flipcards", {cards: data});
+  })
+  .catch(function(err) {
+    res.redirect("/decks");
+  })
+
+})
 
 
 module.exports = router;
