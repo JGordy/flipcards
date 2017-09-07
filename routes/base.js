@@ -135,7 +135,7 @@ router.post("/new_card_header/:id", isAuthenticated, function(req, res) {
     back: req.body.back,
   })
   .then(function(data) {
-    res.redirect("/cards/:id");
+    res.redirect(`/cards/${req.params.id}`);
   })
   .catch(function(err) {
     res.redirect("/cards/:id")
@@ -153,14 +153,36 @@ router.get("/cards/:id", isAuthenticated, function(req, res) {
     ]
   })
   .then(function(data) {
-    console.log("DAAATTAA: ", data[0].Decks.id);
-    res.render("flipcards", {cards: data});
+
+    res.render("flipcards", {cards: data, thisDeckId: req.params.id, currentUser: req.user.username});
   })
   .catch(function(err) {
     res.redirect("/decks");
   })
 
 })
+
+// editing a flipcard
+router.post("/edit_flipcard/:id", isAuthenticated, function(req, res) {
+
+  models.Card.update({
+
+  })
+});
+
+// deleting a flipcard
+router.get("/remove/:deckId/:id", isAuthenticated, function(req, res) {
+console.log("DEEEELLLLEEEETEEE");
+  models.Card.destroy({
+    where: {id: req.params.id}
+  })
+  .then(function(data) {
+    res.redirect(`/cards/${req.params.deckId}`);
+  })
+  .catch(function(err) {
+    res.redirect(`/cards/${req.params.deckId}`);
+  })
+});
 
 
 module.exports = router;
