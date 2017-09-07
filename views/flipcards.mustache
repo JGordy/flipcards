@@ -3,6 +3,7 @@
 </header>
 <div class="main_container">
   <form class="header_card" action="/new_card_header/{{thisDeckId}}" method="post">
+    <a href="/logout"><i class="material-icons logout">power_settings_new</i></a>
     <h3>{{currentUser}}</h3>
     <input type="text" name="front" placeholder="Front of Card">
     <input type="text" name="back" placeholder="Back of Card">
@@ -13,7 +14,7 @@
   <div class="card_collection">
     {{#cards}}
     <div class="single_card">
-      <form class="edit_flipcard{{id}}" action="/edit_flipcard" method="post">
+      <form class="edit_flipcard" action="/edit_flipcard/{{thisDeckId}}/{{id}}" method="post">
         <h4>Front</h4>
         <input type="text" name="front" value="{{front}}">
         <h4>Back</h4>

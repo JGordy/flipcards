@@ -19,6 +19,10 @@ textarea:focus {
     outline: none;
 }
 
+.logout {
+  color: #fff;
+}
+
 .main_container {
   padding-top: 57px;
 }
@@ -79,6 +83,7 @@ textarea:focus {
 
 .single_deck, .single_card {
   border: 1px solid black;
+  border-radius: 5px;
   display: flex;
   flex-basis: 30%;
   flex-direction: column;

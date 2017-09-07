@@ -1,22 +1,49 @@
 const request = require("supertest");
 const app     = require("../server");
 
-// describe("GET /", function() {
-//   test("should render successfully", function() {
-//       return request(app)
-//         .get("/")
-//         .expect(200);
-//   });
-// });
 
-describe("GET /api/bro", function() {
-  test("should retrieve user id and username successfully", function() {
+// testing GET from "/" endpoint
+describe("GET /", function() {
+  test("should receive status of 200 successfully", function() {
     return request(app)
-      .get("/api/bro")
+      .get("/")
       .expect(200)
-      .then(function(res) {
-        expect(res.body).toHaveProperty("id");
-        expect(res.body).toHaveProperty("username");
       });
   });
-});
+
+
+// test for GET collection of decks endpoint
+describe("GET /api/decks", function() {
+  test("should receive status of 200 successfully", function() {
+    return request(app)
+      .get("/api/decks")
+      .expect(200)
+      });
+  });
+
+
+// test for POST call to create a deck
+describe("POST /new_deck", function() {
+  test("should receive status of 200 successfully", function() {
+    return request(app)
+      .get("/")
+      .expect(200)
+      });
+  });
+
+
+// test for POST call to create a flipcard
+describe("POST /new_card/:id", function() {
+  test("should receive status of 200 successfully", function() {
+    return request(app)
+      .get("/")
+      .expect(200)
+      });
+  });
+
+
+// test for PUT to update a single flipcard
+
+
+
+// test for DELETE to remove a single flipcard

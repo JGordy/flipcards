@@ -3,6 +3,7 @@
 </header>
 <div class="main_container">
   <form class="create_deck" action="/new_deck" method="post">
+    <a href="/logout"><i class="material-icons logout">power_settings_new</i></a>
     <h3>{{currentUser}}</h3>
     <input type="text" name="title" placeholder="Deck title">
     <div class="textarea_button">
@@ -17,7 +18,7 @@
         <h4>{{title}}</h4>
         <h5>{{description}}</h5>
       </a>
-      <form class="create_card" action="/new_card_header/{{id}}" method="post">
+      <form class="create_card" action="/new_card/{{id}}" method="post">
         <h4>Create a new flipcard for this deck</h4>
         <input type="text" name="front" placeholder="Front of card">
         <input type="text" name="back" placeholder="Back of card">

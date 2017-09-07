@@ -80,22 +80,19 @@ router.get("/decks", isAuthenticated, function(req, res) {
 })
     .then(function(data) {
       if (data) {
-        // console.log("yep data: ",data);
         res.render("decks", {decks: data, currentUser: req.user.username})
       } else {
-        console.log("nope data");
         res.render("decks");
       }
     })
     .catch(function(err) {
-      console.log(err);
       next(err);
     });
 });
 
 // create a deck
 router.post("/new_deck", isAuthenticated, function(req, res) {
-  console.log("req.body: ", req.body);
+
   models.Deck.create({
     title: req.body.title,
     userId: req.user.id,
@@ -105,7 +102,6 @@ router.post("/new_deck", isAuthenticated, function(req, res) {
     res.redirect("/decks");
   })
   .catch(function(err) {
-    console.log(err);
     res.redirect("/decks");
   })
 });
@@ -163,16 +159,27 @@ router.get("/cards/:id", isAuthenticated, function(req, res) {
 })
 
 // editing a flipcard
-router.post("/edit_flipcard/:id", isAuthenticated, function(req, res) {
+router.post("/edit_flipcard/:deckId/:id", isAuthenticated, function(req, res) {
 
   models.Card.update({
-
+    front: req.body.front,
+    back: req.body.back
+  }, {
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(function(data) {
+    res.redirect(`/cards/${req.params.deckId}`);
+  })
+  .catch(function(err) {
+    res.redirect(`/cards/${req.params.deckId}`);
   })
 });
 
 // deleting a flipcard
 router.get("/remove/:deckId/:id", isAuthenticated, function(req, res) {
-console.log("DEEEELLLLEEEETEEE");
+
   models.Card.destroy({
     where: {id: req.params.id}
   })
@@ -184,5 +191,9 @@ console.log("DEEEELLLLEEEETEEE");
   })
 });
 
+router.get("/logout", function(req, res) {
+  req.logout();
+  res.redirect("/");
+});
 
 module.exports = router;
