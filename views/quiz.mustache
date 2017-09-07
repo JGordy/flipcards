@@ -2,10 +2,22 @@
   <h1>Flipcards</h1>
 </header>
 <div class="quiz_container">
+  {{#cards}}
   <div class="each_card">
-    {{#cards}}
-      <h4>{{front}}</h4>
-      <h4>{{back}}</h4>
-    {{/cards}}
+    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    	<div class="flipper">
+    		<div class="front">
+    			<h4>{{front}}</h4>
+    		</div>
+    		<div class="back">
+    			<h4>{{back}}</h4>
+    		</div>
+    	</div>
+    </div>
+    <div class="answer_container">
+      <a class="correct" href="#"><i class="material-icons md-36 check">done</i></a>
+      <a class="incorrect" href="#"><i class="material-icons md-36 x">clear</i></a>
+    </div>
   </div>
+  {{/cards}}
 </div>
