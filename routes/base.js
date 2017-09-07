@@ -80,7 +80,7 @@ router.get("/decks", isAuthenticated, function(req, res) {
 })
     .then(function(data) {
       if (data) {
-        console.log("yep data: ",data);
+        // console.log("yep data: ",data);
         res.render("decks", {decks: data, currentUser: req.user.username})
       } else {
         console.log("nope data");
@@ -109,5 +109,12 @@ router.post("/new_deck", isAuthenticated, function(req, res) {
     res.redirect("/decks");
   })
 });
+
+
+// create a new card in a deck
+router.post("/new_card/:id", isAuthenticated, function(req, res) {
+  console.log(req.body);
+  res.redirect("/decks");
+})
 
 module.exports = router;

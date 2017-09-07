@@ -71,8 +71,43 @@ textarea:focus {
   margin-right: 10px;
 }
 
+.deck_collection {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
 .single_deck {
   border: 1px solid black;
+  display: flex;
+  flex-basis: 30%;
+  flex-direction: column;
+  height: 300px;
+  justify-content: space-around;
+  margin-top: 25px;
+  margin-left: 28px;
+}
+
+.single_deck a {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.create_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 50%;
+  margin: 10px;
+}
+
+.create_card h4 {
+  font-family: sans-serif;
+  text-align: center;
 }
 
 /***************************************

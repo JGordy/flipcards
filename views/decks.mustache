@@ -17,10 +17,11 @@
         <h4>{{title}}</h4>
         <h5>{{description}}</h5>
       </a>
-      <form class="create_card" action="/new_card" method="post">
+      <form class="create_card" action="/new_card/{{id}}" method="post">
+        <h4>Create a new flipcard for this deck</h4>
         <input type="text" name="front" placeholder="Front of card">
         <input type="text" name="back" placeholder="Back of card">
-        <button type="submit" name="submit">Create flipcard</button>
+        <button type="submit" name="submit">Submit</button>
       </form>
     </div>
     {{/decks}}
