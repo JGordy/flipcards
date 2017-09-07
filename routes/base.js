@@ -191,6 +191,20 @@ router.get("/remove/:deckId/:id", isAuthenticated, function(req, res) {
   })
 });
 
+// starting a quiz with a particular deck
+router.get("/quiz/:deckId", isAuthenticated, function(req, res) {
+  console.log(req.params.deckId);
+  models.Card.findAll({
+    where: {
+      deckId: req.params.deckId
+    }
+  })
+  .then(function(data) {
+    res.render("quiz", {cards: data, user: req.user.username})
+  })
+})
+
+
 router.get("/logout", function(req, res) {
   req.logout();
   res.redirect("/");

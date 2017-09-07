@@ -27,6 +27,7 @@ textarea:focus {
   padding-top: 57px;
 }
 
+
 .create_deck, .header_card {
   align-items: center;
   background-color: #439889;
@@ -188,4 +189,12 @@ header h1 {
   display: flex;
   flex-direction: column;
   padding-left: 40px;
+}
+
+/************************************
+      Quiz page styling
+*************************************/
+
+.quiz_container {
+  padding-top: 57px;
 }
