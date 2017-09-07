@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
 }
+
  body {
     background-color: #eee;
  }
@@ -18,13 +19,65 @@ textarea:focus {
     outline: none;
 }
 
+.main_container {
+  padding-top: 57px;
+}
+
+.create_deck {
+  align-items: center;
+  background-color: #439889;
+  display: flex;
+  font-family: sans-serif;
+  justify-content: space-between;
+  padding: 10px 0px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0px;
+  width: 100%;
+}
+
+.create_deck h3 {
+  color: #fff;
+  margin-left: 10px;
+}
+
+.create_deck input {
+  border: none;
+  border-radius: 2px;
+  font-size: 18px;
+  padding: 7px;
+}
+
+.create_deck textarea {
+  border: none;
+  border-radius: 2px;
+  font-size: 14px;
+  resize: none;
+}
+
+.create_deck button {
+  background-color: #fff;
+  border: none;
+  border-radius: 2px;
+  font-size: 16px;
+  padding: 8px;
+  margin-left: -2px;
+}
+
+.textarea_button {
+  align-items: center;
+  display: flex;
+  flex-basis: 60%;
+  margin-right: 10px;
+}
+
 /***************************************
       signup/login page styling
 ***************************************/
 
 header {
   background-image: linear-gradient(to right, #00695c 40%, black);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  /*box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);*/
   color: #fff;
   padding: 10px 0px;
   position: fixed;

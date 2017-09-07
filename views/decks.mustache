@@ -1,1 +1,13 @@
-<h1>Index.mustache</h1>
+<header>
+  <h1>Flipcards</h1>
+</header>
+<div class="main_container">
+  <form class="create_deck" action="/new_deck" method="post">
+    <h3>{{currentUser}}</h3>
+    <input type="text" name="title" placeholder="Deck title">
+    <div class="textarea_button">
+      <textarea name="message" rows="2" cols="95" placeholder="What does this deck consist of?"></textarea>
+      <button type="submit" name="submit">Post</button>
+    </div>
+  </form>
+</div>
