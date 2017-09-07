@@ -71,6 +71,10 @@ textarea:focus {
   margin-right: 10px;
 }
 
+.single_deck {
+  border: 1px solid black;
+}
+
 /***************************************
       signup/login page styling
 ***************************************/

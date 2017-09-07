@@ -72,7 +72,7 @@ router.post("/signup", function(req, res) {
 
 
 router.get("/decks", isAuthenticated, function(req, res) {
-  console.log("I'm here!!");
+
   models.Deck.findAll({
     include: [
       {model: models.Card, as: 'Cards'}
@@ -91,6 +91,23 @@ router.get("/decks", isAuthenticated, function(req, res) {
       console.log(err);
       next(err);
     });
+});
+
+// create a deck
+router.post("/new_deck", isAuthenticated, function(req, res) {
+  console.log("req.body: ", req.body);
+  models.Deck.create({
+    title: req.body.title,
+    userId: req.user.id,
+    description: req.body.description
+  })
+  .then(function(data) {
+    res.redirect("/decks");
+  })
+  .catch(function(err) {
+    console.log(err);
+    res.redirect("/decks");
+  })
 });
 
 module.exports = router;

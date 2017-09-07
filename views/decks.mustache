@@ -6,8 +6,23 @@
     <h3>{{currentUser}}</h3>
     <input type="text" name="title" placeholder="Deck title">
     <div class="textarea_button">
-      <textarea name="message" rows="2" cols="95" placeholder="What does this deck consist of?"></textarea>
+      <textarea name="description" rows="2" cols="95" placeholder="What does this deck consist of?"></textarea>
       <button type="submit" name="submit">Post</button>
     </div>
   </form>
+  <div class="deck_collection">
+    {{#decks}}
+    <div class="single_deck">
+      <a href="/cards/{{id}}">
+        <h4>{{title}}</h4>
+        <h5>{{description}}</h5>
+      </a>
+      <form class="create_card" action="/new_card" method="post">
+        <input type="text" name="front" placeholder="Front of card">
+        <input type="text" name="back" placeholder="Back of card">
+        <button type="submit" name="submit">Create flipcard</button>
+      </form>
+    </div>
+    {{/decks}}
+  </div>
 </div>

@@ -6,6 +6,7 @@ const morgan          = require("morgan");
 const bodyParser      = require("body-parser");
 const passport        = require('passport');
 const LocalStrategy   = require('passport-local').Strategy;
+const BasicStrategy   = require('passport-http').BasicStrategy;
 const session         = require('express-session');
 const flash           = require('express-flash-messages');
 const model           = require("./models/index");
