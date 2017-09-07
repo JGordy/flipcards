@@ -114,7 +114,13 @@ router.post("/new_deck", isAuthenticated, function(req, res) {
 // create a new card in a deck
 router.post("/new_card/:id", isAuthenticated, function(req, res) {
   console.log(req.body);
+  // models.Card.create
+
+
+
+
   res.redirect("/decks");
 })
+
 
 module.exports = router;

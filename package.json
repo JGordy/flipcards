@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --forceExit",
     "start": "node server.js"
   },
   "keywords": [],
@@ -25,9 +25,12 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "pg": "^7.3.0",
-    "sequelize": "^4.8.0"
+    "sequelize": "^4.8.0",
+    "supertest": "^3.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^21.0.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JGordy/flipcards.git"

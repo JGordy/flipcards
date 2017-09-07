@@ -110,6 +110,11 @@ textarea:focus {
   text-align: center;
 }
 
+.create_card input {
+  border: none;
+  padding: 3px;
+}
+
 /***************************************
       signup/login page styling
 ***************************************/

@@ -2,6 +2,7 @@ const express         = require("express");
 const mustacheExpress = require("mustache-express");
 const path            = require("path");
 const routes          = require("./routes/base");
+const api             = require("./routes/api")
 const morgan          = require("morgan");
 const bodyParser      = require("body-parser");
 const passport        = require('passport');
@@ -12,6 +13,7 @@ const flash           = require('express-flash-messages');
 const model           = require("./models/index");
 const bcrypt          = require("bcrypt");
 const cookieParser    = require('cookie-parser');
+
 
 const app             = express();
 
@@ -89,7 +91,15 @@ app.use(function (req, res, next) {
 })
 
 app.use(routes);
+app.use(api);
 
-app.listen(3000, function() {
-  console.log("App is running on localhost:3000");
-});
+
+// the "if" is used for testing.
+if (require.main === module) {
+  app.listen(3000, function() {
+    console.log("App is running on localhost:3000");
+  });
+}
+
+// exporting the app for the testing
+module.exports = app;
