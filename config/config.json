@@ -9,7 +9,7 @@
   "test": {
     "username": "josephgordy",
     "password": null,
-    "database": "database_test",
+    "database": "flipcards",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

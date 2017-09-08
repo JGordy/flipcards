@@ -1,7 +1,7 @@
 let correct =
 document.getElementsByClassName("correct");
 let incorrect = document.getElementsByClassName("incorrect");
-let eachCard = document.getElementsByClassName("each_card");
+
 let correctCount = document.getElementById("correct_count");
 let totalCount = document.getElementById("total_count");
 

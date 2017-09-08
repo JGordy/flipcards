@@ -8,15 +8,16 @@
     font-family: sans-serif;
  }
 
-.container {
-  /*display: flex;
+/*.container {
+  display: flex;
   flex-flow: row wrap;
-  margin: 20px auto;*/
-}
+  margin: 20px auto;
+}*/
 
 input:focus,
 select:focus,
-textarea:focus {
+textarea:focus,
+button:focus {
     outline: none;
 }
 
@@ -165,7 +166,7 @@ textarea:focus {
 .title {
   color: #00695C;
   font-family: 'Sue Ellen Francisco', cursive;
-  font-size: 24px;
+  font-size: 36px;
   text-align: center;
 }
 
@@ -263,7 +264,8 @@ textarea:focus {
 
 .edit_flipcard h4 {
   color:  #439889;
-  font-size: 24px;
+  font-family: 'Sue Ellen Francisco', cursive;
+  font-size: 32px;
 }
 
 .edit_flipcard input {
@@ -375,7 +377,7 @@ header h1 {
 *************************************/
 
 .quiz_container {
-  padding-top: 65px;
+  /*padding-top: 65px;*/
 }
 
 .each_card {
@@ -386,7 +388,7 @@ header h1 {
 }
 
 .answer_container {
-  border-top: 1px solid black;
+  /*border-top: 1px solid black;*/
   display: flex;
   justify-content: space-around;
   width: 100%;

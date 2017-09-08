@@ -30,7 +30,12 @@ describe("POST /new_deck", function() {
     return request(app)
       .post("/new_deck")
       .set({"Authorization": "Basic amdvcmR5Ompnb3JkeQ=="})
-      .expect(302)
+      .type('form')
+      .send({
+        title: "Name",
+        description: "Description"
+      })
+      .expect(200)
       });
   });
 
@@ -41,7 +46,12 @@ describe("POST /new_card/:id", function() {
     return request(app)
       .post("/new_card/:id")
       .set({"Authorization": "Basic amdvcmR5Ompnb3JkeQ=="})
-      .expect(302)
+      .type('form')
+      .send({
+        name: "Name",
+        description: "Description"
+      })
+      .expect(200)
       });
   });
 
