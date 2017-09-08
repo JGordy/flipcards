@@ -7,6 +7,7 @@ describe("GET /api", function() {
   test("should receive status of 200 successfully", function() {
     return request(app)
       .get("/api")
+      .set({"Authorization": "Basic amdvcmR5Ompnb3JkeQ=="})
       .expect(200)
       });
   });
@@ -17,6 +18,7 @@ describe("GET /api/decks", function() {
   test("should receive status of 200 successfully", function() {
     return request(app)
       .get("/api/decks")
+      .set({"Authorization": "Basic amdvcmR5Ompnb3JkeQ=="})
       .expect(200)
       });
   });
@@ -27,6 +29,7 @@ describe("POST /new_deck", function() {
   test("should receive status of 200 successfully", function() {
     return request(app)
       .post("/new_deck")
+      .set({"Authorization": "Basic amdvcmR5Ompnb3JkeQ=="})
       .expect(302)
       });
   });
@@ -37,6 +40,7 @@ describe("POST /new_card/:id", function() {
   test("should receive status of 200 successfully", function() {
     return request(app)
       .post("/new_card/:id")
+      .set({"Authorization": "Basic amdvcmR5Ompnb3JkeQ=="})
       .expect(302)
       });
   });
