@@ -94,7 +94,7 @@ app.use(function (req, res, next) {
   next();
 })
 
-app.use('/api', routes);
+app.use('/api', api);
 
 app.use(routes);
 app.use(api);

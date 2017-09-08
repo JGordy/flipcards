@@ -1,12 +1,15 @@
 <header>
-  <h1>Flipcards</h1>
+  <a class="back_to_decks" href="/decks"><h1>Flipcards</h1></a>
 </header>
 <div class="main_container">
   <form class="header_card" action="/new_card_header/{{thisDeckId}}" method="post">
-    <a href="/logout"><i class="material-icons logout">power_settings_new</i></a>
-    <h3>{{currentUser}}</h3>
-    <input type="text" name="front" placeholder="Front of Card">
-    <input type="text" name="back" placeholder="Back of Card">
+    <div class="logout_container">
+      <h3>{{currentUser}}</h3>
+      <a class="logout" href="/logout">Logout
+      </a>
+    </div>
+    <input type="text" name="front" placeholder="Front of Card" required>
+    <input type="text" name="back" placeholder="Back of Card" required>
     <div class="textarea_button">
       <button type="submit" name="submit">Create flipcard</button>
     </div>
@@ -16,10 +19,10 @@
     <div class="single_card">
       <form class="edit_flipcard" action="/edit_flipcard/{{thisDeckId}}/{{id}}" method="post">
         <h4>Front</h4>
-        <input type="text" name="front" value="{{front}}">
+        <input type="text" name="front" value="{{front}}" required>
         <h4>Back</h4>
-        <input type="text" name="back" value="{{back}}">
-        <button type="submit" name="submit">Submit Changes</button>
+        <input type="text" name="back" value="{{back}}" required>
+        <button type="submit" name="submit">Save Changes</button>
       </form>
       <a href="/remove/{{thisDeckId}}/{{id}}"><i class="material-icons md-36 delete">delete_forever</i></a>
     </div>

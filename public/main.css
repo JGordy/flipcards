@@ -20,23 +20,27 @@ textarea:focus {
     outline: none;
 }
 
-.logout {
-  color: #fff;
-}
 
 .main_container {
-  padding-top: 57px;
+  /*padding-top: 57px;*/
 }
 
+.logout {
+  border-top: 3px solid white;
+  color: #fff;
+  margin-left: 15px;
+  padding-top: 5px;
+  text-decoration: none;
+}
 
-.create_deck, .header_card {
+.create_deck {
   align-items: center;
   background-color: #439889;
   display: flex;
   font-family: sans-serif;
   justify-content: space-between;
   height: 70px;
-  margin-top: 15px;
+  /*margin-top: 15px;*/
   padding: 10px 0px;
   position: -webkit-sticky;
   position: sticky;
@@ -47,21 +51,29 @@ textarea:focus {
 
 .create_deck h3 {
   color: #fff;
-  margin-left: 10px;
+  margin-left: 15px;
+  margin-bottom: 15px;
 }
 
 .create_deck input {
   border: none;
   border-radius: 2px;
+  flex-basis: 25%;
   font-size: 18px;
-  padding: 7px;
+  padding: 10px 7px;
 }
 
 .create_deck textarea {
   border: none;
   border-radius: 2px;
   font-size: 14px;
+  padding: 12px 0px 13px;
   resize: none;
+  vertical-align: middle;
+}
+
+.create_deck textarea::placeholder {
+  padding-left: 8px;
 }
 
 .create_deck button {
@@ -69,8 +81,8 @@ textarea:focus {
   border: none;
   border-radius: 2px;
   font-size: 16px;
-  padding: 8px;
-  margin-left: -2px;
+  padding: 12px;
+  margin-left: -5px;
 }
 
 .textarea_button {
@@ -130,6 +142,11 @@ textarea:focus {
   padding: 3px;
 }
 
+.back_to_decks {
+  color: #fff;
+  text-decoration: none;
+}
+
 /***************************************
       deck collection page styling
 ***************************************/
@@ -161,6 +178,10 @@ textarea:focus {
   color: #00695C;
 }
 
+.create_card input {
+  text-align: center;
+}
+
 .create_card button {
   align-self: center;
   background-color: #00695C;
@@ -174,6 +195,49 @@ textarea:focus {
 /***************************************
       flipcard page styling
 ***************************************/
+
+.header_card {
+  align-items: center;
+  background-color: #439889;
+  display: flex;
+  font-family: sans-serif;
+  justify-content: space-between;
+  height: 70px;
+  /*margin-top: 15px;*/
+  padding: 10px 0px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  z-index: 5;
+}
+
+.header_card .logout_container {
+  margin-right: 50px;
+}
+
+.header_card input {
+  border: none;
+  font-size: 18px;
+  flex-basis: 100%;
+  height: 30px;
+  margin-left: 40px;
+  padding: 5px;
+}
+
+.header_card button {
+  background-color: #fff;
+  border: none;
+  color: #00695C;
+  font-size: 18px;
+  padding: 9px 10px 10px;
+}
+
+.header_card h3 {
+  color: #fff;
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
 
 .single_card {
   align-items: center;
@@ -241,8 +305,8 @@ header {
   /*background-image: linear-gradient(#00695C, #439889);*/
   background-color: #439889;
   color: #fff;
-  padding: 10px 0px 15px;
-  position: fixed;
+  padding: 10px 0px 0px;
+  /*position: fixed;*/
   text-align: center;
   width: 100%;
   z-index: 2;

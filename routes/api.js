@@ -18,13 +18,13 @@ router.get("/decks", passport.authenticate('basic', {session: false}), function(
   models.Deck.findAll({})
   .then(function(data) {
     if (data) {
-      res.status(200).send(data);
+      res.status(200).json(data);
     } else {
       res.status(404).send("Data not found")
     }
   })
   .catch(function(err) {
-    res.status(500).send(err);
+    res.status(500).json(err);
   })
 });
 
@@ -38,10 +38,10 @@ router.post("/new_deck", passport.authenticate('basic', {session: false}), funct
     description: req.body.description
   })
   .then(function(data) {
-    res.status(201).send(data)
+    res.status(201).json(data)
   })
   .catch(function(err) {
-    res.status(500).send(err)
+    res.status(500).json(err)
   })
 
 });
@@ -56,10 +56,10 @@ router.post("/new_card/:id", passport.authenticate('basic', {session: false}), f
     back: req.body.back,
   })
   .then(function(data) {
-    res.status(201).send(data)
+    res.status(201).json(data)
   })
   .catch(function(err) {
-    res.status(500).send(err)
+    res.status(500).json(err)
   })
 });
 
@@ -76,10 +76,10 @@ router.put("/edit_flipcard/:deckId/:id", passport.authenticate('basic', {session
     }
   })
   .then(function(data) {
-    res.status(201).send(data)
+    res.status(201).json(data)
   })
   .catch(function(err) {
-    res.status(500).send(err)
+    res.status(500).json(err)
   })
 });
 
@@ -95,14 +95,14 @@ router.delete("/remove/:deckId/:id", passport.authenticate('basic', {session: fa
       where: {id: req.params.id}
     })
     .then(function(data) {
-      res.sendStatus(200).send(data);
+      res.sendStatus(200).json(data);
     })
     .catch(function(err) {
-      res.status(500).send(err)
+      res.status(500).json(err)
     })
   })
   .catch(function(err) {
-    res.status(500).send(err)
+    res.status(500).json(err)
   })
 
 });

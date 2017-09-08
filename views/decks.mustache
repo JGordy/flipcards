@@ -1,15 +1,16 @@
 <header>
-  <h1>Flipcards</h1>
+  <a class="back_to_decks" href="/decks"><h1>Flipcards</h1></a>
 </header>
 <div class="main_container">
   <form class="create_deck" action="/new_deck" method="post">
-    <a href="/logout">Logout
-      <!-- <i class="material-icons logout">power_settings_new</i> -->
-    </a>
-    <h3>{{currentUser}}</h3>
-    <input type="text" name="title" placeholder="Deck title">
+    <div class="logout_container">
+      <h3>{{currentUser}}</h3>
+      <a class="logout" href="/logout">Logout
+      </a>
+    </div>
+    <input type="text" name="title" placeholder="Deck title" required>
     <div class="textarea_button">
-      <textarea name="description" rows="2" cols="95" placeholder="Describe this deck?"></textarea>
+      <textarea name="description" rows="1" cols="95" placeholder="Describe this deck?" contenteditable="true" required></textarea>
       <button type="submit" name="submit">Post</button>
     </div>
   </form>
@@ -22,8 +23,8 @@
       </a>
       <form class="create_card" action="/new_card/{{id}}" method="post">
         <h4>Create a new flipcard for this deck</h4>
-        <input type="text" name="front" placeholder="Front of card">
-        <input type="text" name="back" placeholder="Back of card">
+        <input type="text" name="front" placeholder="Question / Front of card" required>
+        <input type="text" name="back" placeholder="Answer / Back of card" required>
         <button type="submit" name="submit">Submit</button>
       </form>
       <a class="take_quiz" href="/quiz/{{id}}">
