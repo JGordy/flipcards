@@ -3,7 +3,9 @@
 </header>
 <div class="main_container">
   <form class="create_deck" action="/new_deck" method="post">
-    <a href="/logout"><i class="material-icons logout">power_settings_new</i></a>
+    <a href="/logout">Logout
+      <!-- <i class="material-icons logout">power_settings_new</i> -->
+    </a>
     <h3>{{currentUser}}</h3>
     <input type="text" name="title" placeholder="Deck title">
     <div class="textarea_button">
@@ -15,8 +17,8 @@
     {{#decks}}
     <div class="single_deck">
       <a href="/cards/{{id}}">
-        <h4>{{title}}</h4>
-        <h5>{{description}}</h5>
+        <h4 class="title">{{title}}</h4>
+        <h5 class="description">{{description}}</h5>
       </a>
       <form class="create_card" action="/new_card/{{id}}" method="post">
         <h4>Create a new flipcard for this deck</h4>
@@ -24,7 +26,10 @@
         <input type="text" name="back" placeholder="Back of card">
         <button type="submit" name="submit">Submit</button>
       </form>
-      <a href="/quiz/{{id}}"><i class="material-icons">live_help</i><p>Take a quiz!</p></a>
+      <a class="take_quiz" href="/quiz/{{id}}">
+        <p>Take a quiz!</p>
+        <i class="material-icons">live_help</i>
+      </a>
     </div>
     {{/decks}}
   </div>

@@ -2,6 +2,13 @@
   <h1>Flipcards</h1>
 </header>
 <div class="quiz_container">
+  <div class="score_container">
+    <h1>Hover over each card to reveal the answer</h2>
+    <h2>Score:
+      <span id="correct_count"></span>
+      /<span id="total_count"></span>
+    </h1>
+  </div>
   {{#cards}}
   <div class="each_card">
     <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
@@ -20,4 +27,5 @@
     </div>
   </div>
   {{/cards}}
+  <h3 id="back_to">Great Job! Want to try again?<a href="/decks">Back to Decks</a></h3>
 </div>

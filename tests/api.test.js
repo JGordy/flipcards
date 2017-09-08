@@ -3,10 +3,10 @@ const app     = require("../server");
 
 
 // testing GET from "/" endpoint
-describe("GET /", function() {
+describe("GET /api", function() {
   test("should receive status of 200 successfully", function() {
     return request(app)
-      .get("/")
+      .get("/api")
       .expect(200)
       });
   });
@@ -26,8 +26,8 @@ describe("GET /api/decks", function() {
 describe("POST /new_deck", function() {
   test("should receive status of 200 successfully", function() {
     return request(app)
-      .get("/")
-      .expect(200)
+      .post("/new_deck")
+      .expect(302)
       });
   });
 
@@ -36,8 +36,8 @@ describe("POST /new_deck", function() {
 describe("POST /new_card/:id", function() {
   test("should receive status of 200 successfully", function() {
     return request(app)
-      .get("/")
-      .expect(200)
+      .post("/new_card/:id")
+      .expect(302)
       });
   });
 

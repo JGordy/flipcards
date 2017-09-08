@@ -5,6 +5,7 @@
 
  body {
     background-color: #eee;
+    font-family: sans-serif;
  }
 
 .container {
@@ -34,11 +35,14 @@ textarea:focus {
   display: flex;
   font-family: sans-serif;
   justify-content: space-between;
+  height: 70px;
+  margin-top: 15px;
   padding: 10px 0px;
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
   width: 100%;
+  z-index: 5;
 }
 
 .create_deck h3 {
@@ -82,13 +86,15 @@ textarea:focus {
   justify-content: flex-start;
 }
 
-.single_deck, .single_card {
-  border: 1px solid black;
-  border-radius: 5px;
+.single_deck{
+  align-items: center;
+  background-color: #fff;
+  /*border: 1px solid black;*/
+  /*border-radius: 5px;*/
   display: flex;
   flex-basis: 30%;
   flex-direction: column;
-  height: 300px;
+  height: 400px;
   justify-content: space-around;
   margin-top: 25px;
   margin-left: 28px;
@@ -118,7 +124,113 @@ textarea:focus {
 
 .create_card input {
   border: none;
+  border-bottom: 1px solid #00695C;
+  font-size: 16px;
+  margin-top: 4px;
   padding: 3px;
+}
+
+/***************************************
+      deck collection page styling
+***************************************/
+
+.deck_collection {
+  padding-bottom: 30px;
+}
+
+.single_deck .take_quiz {
+  color: #00695C;
+  display: flex;
+  height: 40px;
+  text-align: center;
+}
+
+.title {
+  color: #00695C;
+  font-family: 'Sue Ellen Francisco', cursive;
+  font-size: 24px;
+  text-align: center;
+}
+
+.description {
+  color: #439889;
+  text-align: center;
+}
+
+.create_card h4 {
+  color: #00695C;
+}
+
+.create_card button {
+  align-self: center;
+  background-color: #00695C;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  width: 50%;
+  padding: 5px;
+}
+
+/***************************************
+      flipcard page styling
+***************************************/
+
+.single_card {
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+  flex-basis: 30%;
+  flex-direction: column;
+  height: 400px;
+  margin-top: 25px;
+  margin-left: 28px;
+
+  justify-content: space-between;
+  width: 100%;
+}
+
+.edit_flipcard {
+  display: flex;
+  flex-flow: column;
+  height: 80%;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.edit_flipcard h4 {
+  color:  #439889;
+  font-size: 24px;
+}
+
+.edit_flipcard input {
+  border: none;
+  border-bottom: 1px solid  #00695C;
+  color: gray;
+  font-size: 20px;
+  padding: 5px 0px;
+  text-align: center;
+}
+
+.edit_flipcard button {
+  background-color: #00695C;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 12px;
+  padding: 5px 10px;
+  width: 50%;
+  align-self: center;
+}
+
+.delete {
+  /*background-color: #ff7961;*/
+  color: #ff7961;
+  font-size: 32px;
+  height: 100%;
+  /*padding: 15px 60px;*/
+  margin-right: 75px;
+  text-align: center;
+  width: 100%;
 }
 
 /***************************************
@@ -126,17 +238,20 @@ textarea:focus {
 ***************************************/
 
 header {
-  background-image: linear-gradient(to right, #00695c 40%, black);
-  /*box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);*/
+  /*background-image: linear-gradient(#00695C, #439889);*/
+  background-color: #439889;
   color: #fff;
-  padding: 10px 0px;
+  padding: 10px 0px 15px;
   position: fixed;
   text-align: center;
   width: 100%;
+  z-index: 2;
 }
 
 header h1 {
-  letter-spacing: 0.4em;
+  font-family: 'Sue Ellen Francisco', cursive;
+  font-size: 36px;
+  letter-spacing: 0.5em;
 }
 
 .signup_container {
@@ -200,7 +315,7 @@ header h1 {
 }
 
 .each_card {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   border-radius: 5px;
   margin:75px auto;
   width: 60%;
@@ -214,7 +329,7 @@ header h1 {
 }
 
 .correct {
-  background-color: green;
+  background-color: #43a047;
   color: #fff;
   height: 100%;
   padding: 15px 0px;
@@ -228,7 +343,7 @@ header h1 {
 }
 
 .incorrect {
-  background-color: red;
+  background-color: #ff7961;
   color: #fff;
   height: 100%;
   padding: 15px 0px;
@@ -244,13 +359,28 @@ header h1 {
   font-size: 36px;
 }
 
+.quiz_container h1 {
+  color: #003d33;
+  font-size: 36px;
+  font-family: 'Sue Ellen Francisco', cursive;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.quiz_container h2 {
+  color: #003d33;
+  font-size: 36px;
+  font-family: 'Sue Ellen Francisco', cursive;
+  text-align: center;
+}
+
 /************************************
      fllipping animation styling
 *************************************/
 
 /* entire container, keeps perspective */
 .flip-container {
-	perspective: 400px;
+	perspective: 1200px;
 }
 	/* flip the pane when hovered */
 	.flip-container:hover .flipper, .flip-container.hover .flipper {
@@ -258,7 +388,7 @@ header h1 {
 	}
 
 .flip-container, .front, .back {
-	width: 200px;
+	width: 100%;
 	height: 200px;
 }
 
@@ -281,6 +411,12 @@ header h1 {
 
 /* front pane, placed above back */
 .front {
+  background-color: #bcbcbc;
+  color: #003d33;
+  font-family: 'Sue Ellen Francisco', cursive;
+
+  letter-spacing: 0.5em;
+  text-align: center;
 	z-index: 2;
 	/* for firefox 31 */
 	transform: rotateY(0deg);
@@ -288,5 +424,39 @@ header h1 {
 
 /* back, initially hidden pane */
 .back {
+  background-color: #439889;
+  color: #eee;
+  font-family: 'Sue Ellen Francisco', cursive;
+  letter-spacing: 0.5em;
+  text-align: center;
 	transform: rotateY(180deg);
+}
+
+.front h4, .back h4 {
+  font-size: 48px;
+  margin-top: 55px;
+}
+
+#back_to {
+  color: #00695c;
+  font-family: 'Sue Ellen Francisco', cursive;
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#back_to a {
+  color: #439889;
+  font-family: 'Sue Ellen Francisco', cursive;
+  font-size: 32px;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+#correct_count {
+  margin-right: 2px;
+}
+
+#total_count {
+  margin-left: 8px;
 }
