@@ -26,16 +26,21 @@ describe("GET /api/decks", function() {
 
 // test for POST call to create a deck
 describe("POST /new_deck", function() {
-  test("should receive status of 200 successfully", function() {
+  test("should receive status of 200 successfully and receive object with status message", function() {
     return request(app)
-      .post("/new_deck")
-      .set({"Authorization": "Basic amdvcmR5Ompnb3JkeQ=="})
+      .post("api/new_deck")
       .type('form')
       .send({
         title: "Name",
         description: "Description"
       })
-      .expect(200)
+      .set({"Authorization": "Basic amdvcmR5Ompnb3JkeQ=="})
+      // .expect(200)
+      .then(function(res) {
+        // expect(res.body.status).toBe(200);
+        expect(res.body).toHaveProperty("status");
+        expect(res.body.status).toBe("success");
+      })
       });
   });
 

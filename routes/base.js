@@ -74,6 +74,8 @@ router.post("/signup", function(req, res) {
 router.get("/decks", isAuthenticated, function(req, res) {
 
   models.Deck.findAll({
+    where: {userId: req.user.id},
+    order: [['createdAt', 'DESC']],
     include: [
       {model: models.Card, as: 'Cards'}
     ]
