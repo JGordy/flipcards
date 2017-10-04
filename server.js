@@ -14,8 +14,10 @@ const model           = require("./models/index");
 const bcrypt          = require("bcrypt");
 const cookieParser    = require('cookie-parser');
 
-
 const app             = express();
+
+// below line is required for production app...setting the port
+app.set('port', (process.env.PORT || 3000))
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -99,11 +101,11 @@ app.use('/api', api);
 app.use(routes);
 app.use(api);
 
-
 // the "if" is used for testing.
+// getting the port from above..do this for production instead of localhost:3000
 if (require.main === module) {
-  app.listen(3000, function() {
-    console.log("App is running on localhost:3000");
+  app.listen(app.get('port'), function() {
+    console.log("Node app is running on port", app.get('port'));
   });
 }
 
